@@ -29,7 +29,7 @@ CREATE TABLE Car (
 
 CREATE TABLE Ownership_history (
 	Ownership_ID	INT	PRIMARY KEY AUTO_INCREMENT COMMENT '소유이력ID',
-	Previous_Owner	VARCHAR(255)	NULL	DEFAULT '-' COMMENT '이전소유자',
+	Previous_Owner	VARCHAR(255)	DEFAULT '-' COMMENT '이전소유자',
 	Current_Owner	VARCHAR(255)	NOT NULL COMMENT '현재소유자',
 	Ownership_start	DATETIME	NOT NULL COMMENT '소유시작일',
 	Ownership_end	DATETIME	NOT NULL COMMENT '소유종료일',
@@ -84,14 +84,14 @@ CREATE TABLE USER (
 	Dealer_region	VARCHAR(255)	NULL COMMENT '딜러 근무지',
 	Dealer_grade	INT	NULL COMMENT '딜러 등급',
 	User_type	INT	NOT NULL COMMENT '회원 유형',
-	User_blacklist	TINYINT(1)	NULL	DEFAULT 0 COMMENT '블랙회원여부',
-	Restriction_date	DATETIME	NULL COMMENT '제재 적용일',
-	Restriction_end_date	DATETIME	NULL COMMENT '제재 종료일',
-	Login_fail_stack	INT	NULL DEFAULT 0 COMMENT '로그인실패횟수',
-	Report_issue_stack	INT	NULL DEFAULT 0 COMMENT '누적신고횟수',
-	Login_restriction_check	TINYINT(1)	NULL	DEFAULT 0 COMMENT '접근제한여부',
-	User_withdraw_check	TINYINT(1)	NULL	DEFAULT 0 COMMENT '탈퇴여부',
-	User_withdraw_date DATE NULL COMMENT '탈퇴날짜'
+	User_blacklist	TINYINT(1)	DEFAULT 0 COMMENT '블랙회원여부',
+	Restriction_date	DATETIME	COMMENT '제재 적용일',
+	Restriction_end_date	DATETIME	COMMENT '제재 종료일',
+	Login_fail_stack	INT	DEFAULT 0 COMMENT '로그인실패횟수',
+	Report_issue_stack	INT	DEFAULT 0 COMMENT '누적신고횟수',
+	Login_restriction_check	TINYINT(1)	DEFAULT 0 COMMENT '접근제한여부',
+	User_withdraw_check	TINYINT(1)	DEFAULT 0 COMMENT '탈퇴여부',
+	User_withdraw_date DATE COMMENT '탈퇴날짜'
 )COMMENT = '회원';
 
 CREATE TABLE Coupon (
